@@ -1,0 +1,26 @@
+{
+    "name": "darco-loader",
+    "version": "1.0.3",
+    "main": "darco-loader.js",
+    "description": "A Loader component with progress bar line, to react Suspense hook", 
+  
+    "peerDependencies": {
+      "react": "18.2.0",
+      "react-dom": "18.2.0",
+      "@types/react": "^18.2.15",
+      "@types/react-dom": "^18.2.7"
+    },
+    "repository": {
+      "type": "git",
+    "url": "https://github.com/AngelDarco/darco-loader.git"
+    },
+    "keywords": [
+      "loader",
+      "darco-loader",
+      "progress-bar-loader",
+      "react-loader",
+      "react-suspense-loader"
+    ],
+    "author": "Darco",
+    "license": "ISC"
+  }
