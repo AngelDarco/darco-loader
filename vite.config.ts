@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js"
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,5 +11,7 @@ export default defineConfig({
       formats: ['es', 'cjs', 'umd']
     }
   },
-  plugins: [react()],
+  plugins: [
+    cssInjectedByJsPlugin(),
+    react()],
 })
