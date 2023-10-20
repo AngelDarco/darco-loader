@@ -1,0 +1,10 @@
+:root {
+  --primary-color: #f1c40f;
+  --secondary-color: #e67e22;
+
+  --shadow-progressbar-color: #f1c40f;
+  --shadow-pointer-color: #f1c40f;
+
+  --final-screen-color: #fff;
+  --animation-time: 1s;
+}
