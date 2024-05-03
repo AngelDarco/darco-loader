@@ -1,6 +1,30 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  h1 {
+    text-align: center;
+    margin-top: 4rem;
+  }
+
+  button {
+    width: fit-content;
+    padding: 0.5rem 2rem;
+    text-shadow: 0 0 5px #f1c40f;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.01);
+      box-shadow: 0 0 5px #f1c40f;
+    }
+  }
 }
