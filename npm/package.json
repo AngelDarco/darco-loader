@@ -4,13 +4,13 @@
   "module": "index.js",
   "main": "index.umd.cjs",
   "types": "@types/index.d.ts",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "exports": {
     ".": {
       "import": "./index.js",
-        "require": "./index.umd.cjs",
-        "default": "./index.js",
-        "types": "./@types/index.d.ts"
+      "require": "./index.umd.cjs",
+      "default": "./index.js",
+      "types": "./@types/index.d.ts"
     }
   },
   "description": "A Loader component with progress bar line, to react Suspense hook",
@@ -31,7 +31,7 @@
   "keywords": [
     "loader",
     "darco-loader",
-    "progress-bar-loader",
+    "progressbar-loader",
     "react-loader",
     "react-suspense-loader"
   ],
