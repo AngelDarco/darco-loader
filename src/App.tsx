@@ -1,11 +1,12 @@
 import "./App.css";
-// import Loader from "./components/Loader";
-import Loader from "darco-loader"
+import Loader from "./components/Loader";
 
 function App() {
-  return <div className="App">
-    <Loader />;
-  </div>;
+  return (
+    <div className="App">
+      <Loader />
+    </div>
+  );
 }
 
 export default App;
