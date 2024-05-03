@@ -17,7 +17,7 @@ export type loaderStyleProps = {
     height?: string;
     backgroundColor?: string;
   };
-    progressPointer?: {
+  progressPointer?: {
     width?: string;
     height?: string;
     backgroundColor?: string;
@@ -26,12 +26,13 @@ export type loaderStyleProps = {
   finalScreen?: {
     backgroundColor?: string;
     time?: number;
-    class?: string
+    class?: string;
   };
 };
 type loaderProps = {
   type?: string;
   time?: number;
   porcentageShow?: boolean;
-  styles?: loaderStyleProps;
+  className?: string;
+  callback?: (state: boolean) => void;
 };
