@@ -2,7 +2,7 @@
   "name": "darco-loader",
   "version": "0.0.1",
   "type": "module",
-  "types": "src/components/types.d.ts",
+  "types": "src/types/types.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

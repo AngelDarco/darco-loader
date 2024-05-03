@@ -3,36 +3,37 @@ import react from "@vitejs/plugin-react-swc";
 import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 import dts from "vite-plugin-dts";
 
-
 // https://vitejs.dev/config/
 export default defineConfig({
-  build:{
-    lib:{
+  build: {
+    lib: {
       name: "index",
       fileName: "index",
-      entry: "./src/components/Loader.tsx",
+      entry: "./src/components/Loader",
       formats: ["es", "umd", "cjs"],
     },
     minify: true,
     emptyOutDir: true,
 
-    rollupOptions:{
+    rollupOptions: {
       external: ["react", "react-dom"],
-      output:{
+      output: {
         dir: "dist",
         exports: "named",
-        globals:{
-          react: "React", "react-dom": "ReactDOM"
-        }
-      }
-    }
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
+    },
   },
   plugins: [
     react(),
     cssInjectedByJsPlugin(),
-    dts({ 
+    dts({
       rollupTypes: true,
+      entryRoot: "src/types",
       outDir: "dist/@types/",
-    })
+    }),
   ],
 });
