@@ -1,78 +1,50 @@
 import moduleStyles from "./loader.module.css";
-import timer from "./timer";
-import { loaderStyleProps, loaderProps } from "./types"
+import Timer from "../utils/Timer";
+import { loaderProps } from "../types/types";
+import { useEffect, useState } from "react";
 
-let finalScreen: string | loaderStyleProps["finalScreen"];
 const Loader = (props: loaderProps) => {
   const {
     type = "static",
     time = 2,
     porcentageShow = true,
-    styles,
+    className,
+    callback,
   } = props;
+  const [loader, setLoader] = useState(true);
 
-  timer(type, time);
-
-  const containerStyle = styles?.container;
-  let progressBarContainerStyle = styles?.progressBarContainer;
-
-  if (
-    styles?.progressBarContainer &&
-    styles?.progressBarContainer["display"] === "hidden"
-  ) {
-    progressBarContainerStyle = {
-      ...progressBarContainerStyle,
-      backgroundColor: "transparent",
-    };
-  }
-
-  if (
-    styles?.progressPointer &&
-    styles?.progressPointer["shadowColor"]
-  ) {
-    document.documentElement.style.setProperty(
-      "--shadow-pointer-color",
-      styles?.progressPointer["shadowColor"],
-    );
-  }
-
-  const progressbarStyle = styles?.progressbar;
-  const progressPointerStyle = styles?.progressPointer;
-
-  finalScreen = customStylesFinalScreen(styles?.finalScreen);
+  useEffect(() => {
+    const timer = new Timer(moduleStyles);
+    let id = 0;
+    if (type === "static") {
+      const fn = () => {
+        id = setTimeout(() => {
+          setLoader(false);
+          callback && callback(loader);
+        }, 1000);
+      };
+      time && timer.staticTime(time, fn);
+    } else if (type === "interval") {
+      time && timer.intervalTime(time);
+    }
+    return () => clearTimeout(id);
+  }, [loader]);
 
   return (
-    <div style={{ ...containerStyle }} className={moduleStyles.loaderContainer}>
-      <div className={moduleStyles.loaderIcons} id="loaderIcons">
-        {porcentageShow && <h1 className={moduleStyles.count} id="count"></h1>}
-      </div>
+    <>
+      {!loader && (
+        <div id={moduleStyles.loaderContainer} className={className}>
+          <div id={moduleStyles.loaderIcons}>
+            {porcentageShow ? <h1 id={moduleStyles.count}></h1> : null}
+          </div>
 
-      <div
-        style={{ ...progressBarContainerStyle }}
-        className={moduleStyles.progressbarContainer}
-      >
-        <div
-          style={{ ...progressbarStyle }}
-          className={moduleStyles.progressbar}
-          id="progress-bar"
-        ></div>
-        <div
-          style={{ ...progressPointerStyle }}
-          className={moduleStyles.progressPointer}
-          id="progressPointer"
-        ></div>
-      </div>
-    </div>
+          <div id={moduleStyles.progressbarContainer}>
+            <div id={moduleStyles.progressBar}></div>
+            <div id={moduleStyles.progressPointer}></div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
-
-const customStylesFinalScreen = (
-  styles?: loaderStyleProps["finalScreen"],
-) => {
-  if (styles && Object.keys(styles).length > 0)
-    return { ...styles, class: moduleStyles.finalScreen };
-  return moduleStyles.finalScreen;
-};
-
-export { finalScreen };
 export default Loader;
