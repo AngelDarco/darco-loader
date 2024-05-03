@@ -1,10 +1,9 @@
 import "./App.css";
-import Loader from "./components/Loader";
 
 function App() {
   return (
     <div className="App">
-      <Loader />
+      <h1>Demo page working ...</h1>
     </div>
   );
 }

@@ -1,10 +1,10 @@
 :root {
-  --primary-color: #f1c40f;
-  --secondary-color: #e67e22;
+  --pointer: #f1c40f;
+  --progressbar: #fff;
 
-  --shadow-progressbar-color: #f1c40f;
-  --shadow-pointer-color: #f1c40f;
+  --shadow-progressbar: #f1c40f;
+  --shadow-pointer: #f1c40f;
 
-  --final-screen-color: #fff;
+  --final-screen: #fff;
   --animation-time: 1s;
 }
