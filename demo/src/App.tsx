@@ -1,5 +1,6 @@
 import "./App.css";
-import Loader from "../../src/components/Loader";
+import Loader from "darco-loader";
+
 import { useEffect, useRef, useState } from "react";
 import * as dat from "dat.gui";
 
