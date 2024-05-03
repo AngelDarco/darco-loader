@@ -20,7 +20,7 @@ const Loader = (props: loaderProps) => {
       id = setTimeout(() => {
         setLoader(false);
         callback && callback(loader);
-      }, 1500);
+      }, 1200);
     };
     if (type === "static") {
       time && timer.staticTime(time, fn);
