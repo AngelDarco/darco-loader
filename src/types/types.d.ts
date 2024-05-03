@@ -1,38 +1,10 @@
-type displayLoader = "hidden" | "show";
-
-export type loaderStyleProps = {
-  container?: {
-    width?: string;
-    height?: string;
-    backgroundColor?: string;
-  };
-  progressBarContainer?: {
-    width?: string;
-    height?: string;
-    backgroundColor?: string;
-    display?: displayLoader;
-    borderRadius?: string;
-  };
-  progressbar?: {
-    height?: string;
-    backgroundColor?: string;
-  };
-  progressPointer?: {
-    width?: string;
-    height?: string;
-    backgroundColor?: string;
-    shadowColor?: string;
-  };
-  finalScreen?: {
-    backgroundColor?: string;
-    time?: number;
-    class?: string;
-  };
-};
-type loaderProps = {
+export type loaderProps = {
   type?: string;
   time?: number;
-  porcentageShow?: boolean;
+  showPorcentage?: boolean;
   className?: string;
   callback?: (state: boolean) => void;
 };
+
+declare const Loader: (props: loaderProps) => JSX.Element | null;
+export default Loader;
